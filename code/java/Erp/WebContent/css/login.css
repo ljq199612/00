@@ -1,0 +1,15 @@
+.mainTable{
+	width:  600px;
+	height: 500px;
+	border: 0; 
+	margin: 15% auto;
+	background-color: seagreen;
+}
+
+.mainTable2{
+	width:  300px;
+	height: 300px;
+	border: 0; 
+	margin: 0 auto;
+	background-color: #429265;
+}

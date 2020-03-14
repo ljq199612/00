@@ -1,0 +1,23 @@
+/ignore/
+/trash/
+**/log/**
+
+
+.directory
+*~
+*.sw?
+
+
+
+# git init
+# git add .
+# git commit -m "first commit"
+
+# git remote add origin git@github.com:ljq199612/00.git
+# git push -u origin master
+
+# git remote set-url origin git@github.com:ljq199612/00.git
+# git push -u origin master
+
+
+# git reset hard id  // git log 可查id  // git reflog 可查执行过的各个id

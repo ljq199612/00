@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="SQLMAP_ENVIRONMENT">
+	<!-- 查询环境列表 -->
+	<select id="select_environment" parameterClass="com.ljq.model.Environment"  resultClass="com.ljq.model.Environment">
+		select * from environment 	
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="number">
+				number like '%$number$%'
+			</isNotNull>
+			<isNotNull prepend="and" property="name">
+				name like '%$name$%'
+			</isNotNull>
+			<isNotNull prepend="and" property="location">
+				location like '%$location$%'
+			</isNotNull>
+			<isNotNull prepend="and" property="area">
+				area like '%$area$%'
+			</isNotNull>
+			<isNotEmpty prepend="and" property="date">
+				date like '%$date$%'
+			</isNotEmpty>
+			<isNotNull prepend="and" property="memorable">
+				memorable like '%$memorable$%'
+			</isNotNull>
+		</dynamic>	
+	</select>
+	
+	<!-- 查询单条信息 -->
+	<!-- 
+	<select id="select_a_environment" parameterClass="java.lang.String"  resultClass="com.ljq.model.Environment">
+		select * from environment where id = #id:VARCHAR#
+	</select>
+	 -->
+	<!-- 删除投诉信息 -->
+	<!-- 
+	<delete id="delete_a_environment" parameterClass="java.lang.String">
+		delete from  environment where id = #id:VARCHAR#
+	</delete>
+	 -->
+	<!-- 修改业主信息 -->
+	<!-- 
+	<update id="update_a_environment" parameterClass="com.ljq.model.Environment">
+		update environment 
+				set 
+					date  = #date:VARCHAR#,
+					cause = #cause:VARCHAR#,
+					cost = #cost:VARCHAR#
+				where id=#id:VARCHAR#
+	</update>
+	 -->
+</sqlMap>

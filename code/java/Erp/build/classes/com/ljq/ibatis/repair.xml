@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="SQLMAP_REPAIR">
+<!-- 查询信息列表 -->
+	<select id="select_repair" parameterClass="com.ljq.model.Repair"  resultClass="com.ljq.model.Repair">
+		select * from repair , household where repair.household_id = household.id 	
+	</select>
+	
+	<!-- 查询单条信息 -->
+	<select id="select_a_repair" parameterClass="java.lang.String"  resultClass="com.ljq.model.Repair">
+		select * from repair where id = #id:VARCHAR#
+	</select>
+	
+	<!-- 删除投诉信息 -->
+	<delete id="delete_a_repair" parameterClass="java.lang.String">
+		delete from repair where id = #id:VARCHAR#
+	</delete>
+	
+	<!-- 修改业主信息 -->
+	<update id="update_a_repair" parameterClass="com.ljq.model.Repair">
+		update repair 
+				set 
+					date  = #date:VARCHAR#,
+					cause = #cause:VARCHAR#,
+					state = #state:VARCHAR#
+				where id=#id:VARCHAR#
+	</update>
+	
+</sqlMap>

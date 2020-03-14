@@ -1,0 +1,9 @@
+git add .
+
+git commit -m "hello, world"
+
+git remote add origin git@github.com:ljq199612/00.git
+
+git remote set-url origin git@github.com:ljq199612/00.git
+
+git push -u origin master

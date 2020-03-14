@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>- Welcome -</title>
+</head>
+<body>
+<h1>您好, [[${session.user}]] !</h1>
+<h1>主页面不拦截!</h1>
+
+<form name="thisForm" action="/_logout" method="post">
+	<input type="submit" name="logout" value="注销"/>
+</form>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<b>未登录拦截</b>
+<a href="/admin/1/5/">/admin/1/5/</a>
+
+</body>
+
+
+</html>
+

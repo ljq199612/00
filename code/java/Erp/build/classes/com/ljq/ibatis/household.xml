@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="SQLMAP_HOUSEHOLD">
+	<!-- 查询业主信息列表 -->
+	<select id="select_household" parameterClass="com.ljq.model.Household"  resultClass="com.ljq.model.Household">
+		select * from household 	
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="name">
+				name like '%$name$%'
+			</isNotNull>
+			<isNotNull prepend="and" property="sex">
+				sex like '%$sex$%'
+			</isNotNull>
+			<isNotNull prepend="and" property="age">
+				age like '%$age$%'
+			</isNotNull>
+			<isNotNull prepend="and" property="telephone">
+				telephone like '%$telephone$%'
+			</isNotNull>
+			<isNotEmpty prepend="and" property="address">
+				address like '%$address$%'
+			</isNotEmpty>
+			<isNotNull prepend="and" property="password">
+				password like '%$psssword$%'
+			</isNotNull>
+			<isNotNull prepend="and" property="regdate">
+				regdate like '%$regdate$%'
+			</isNotNull>
+			<isNotEmpty prepend="and" property="remarks">
+				remarks like '%$remarks$%'
+			</isNotEmpty>
+		  </dynamic>	
+	</select>
+
+	<select id="select_a_household" parameterClass="java.lang.String"  resultClass="com.ljq.model.Household">
+		select * from household where id = #id:VARCHAR#
+	</select>
+	
+ 	<!-- 删除业主信息 -->
+	<delete id="delete_a_household" parameterClass="java.lang.String">
+		delete from household where id = #id:VARCHAR#
+	</delete>
+	
+	<!-- 添加业主信息 -->
+	<insert id="insert_a_household" parameterClass="com.ljq.model.Household">
+		insert into household (id, name, sex, age, telephone, address, regdate, password, remarks) 
+			values(
+				#id:VARCHAR#, #name:VARCHAR#, #sex:VARCHAR#, #age:VARCHAR#, #telephone:VARCHAR#,  
+				#address:VARCHAR#, #regdate:VARCHAR#, #password:VARCHAR#, #remarks:VARCHAR#)
+	</insert>
+	
+	<!-- 修改业主信息 -->
+	<update id="update_a_household" parameterClass="com.ljq.model.Household">
+		update household 
+				set 
+					name = #name:VARCHAR#,
+					sex = #sex:VARCHAR#, 
+					age = #age:VARCHAR#,
+					telephone = #telephone:VARCHAR#,
+					address = #address:VARCHAR#,
+					regdate = #regdate:VARCHAR#,
+					password = #password:VARCHAR#,
+					remarks = #remarks:VARCHAR#
+				where id=#id:VARCHAR#
+	</update>
+
+</sqlMap>

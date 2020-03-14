@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="Typemodule_sqlMap">
+<!--查询单条信息-->
+<select id="select_a_user" parameterClass="java.util.Map"  resultClass="com.ljq.model.Admin">
+	select * from t_admin where userName = #userName:VARCHAR# and password = #password:VARCHAR#
+</select>
+
+<update id="update_by_userName" parameterClass="java.util.Map">
+ 	update t_admin set password = #password:VARCHAR#  where  userName = #userName:VARCHAR#
+</update>
+
+<insert id="addUser" parameterClass="java.util.Map">
+	insert into t_admin (userId, userName, password) values(#id:INTEGER#, #userName:VARCHAR#, #password:VARCHAR#)
+</insert>
+
+
+</sqlMap>

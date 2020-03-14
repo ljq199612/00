@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<!-- 引入自定义模板 _main.html -->
+<div th:include="_main :: head"></div>
+
+<head>
+	<title>- welcome - [[${session.user}]] !</title>
+</head>
+<body>
+
+<h1>您好, [[${session.user}]] !</h1>
+<form name="thisForm" action="/_logout" method="post">
+	<input type="submit" name="logout" value="注销"/>
+</form>
+
+<br>
+<br>
+
+<h1>Spring Boot 集成Mybatis  + Pagehelper 测试例子</h1>
+
+<br>
+当前页共 [[ ${pageInfo.list.size()} ]] 条记录，总共 [[ ${pageInfo.total} ]] 条记录
+
+<!---->
+	<table id = "adminsTable">
+		<tr>
+			<th width="25%">姓名</th>
+			<th width="25%">密码</th>
+			<th width="25%">注册时间</th>
+			<th width="25%">操作</th>
+		</tr>
+
+			<tr th:each="admin : ${admin}">
+				<td width="25%">[[ ${admin.userName} ]]</td>
+				<td width="25%">[[ ${admin.password} ]]</td>
+				<td width="25%">[[ ${admin.registDate} ]]</td>
+				<td width="25%">
+					<input type="button" name="update" value="修改"/>
+					<input type="button" name="delete" value="删除"/>
+					<input type="hidden" value="${admin.id}"/>
+				</td>
+			</tr>
+	</table>
+<!---->
+
+</body>
+</html>
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $(document).ready(function(){
+        $('#adminsTable input').hover(
+	        function(){ $(this).css("color", "red");},
+			function(){ $(this).css("color", ""); }
+		);
+		$('#adminsTable tr:even').css("backgroundColor","skyblue");
+		$('#adminsTable tr:odd').css("backgroundColor","aliceblue");
+		$('#adminsTable tr th').css("backgroundColor","lightgreen");
+		$(':button').css("backgroundColor","gold");
+		//$(':submit').css("backgroundColor","gold");
+
+	});
+});
+
+</script>

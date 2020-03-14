@@ -1,0 +1,26 @@
+!--------------------------------------------------
+!Caps Lock 与 Esc 键互换 
+!Shift + Caps Lock 组合键改为 colon
+!semicolon 键改为 Ctrl
+
+clear lock
+clear control
+add control = Caps_Lock Control_L Control_R
+keycode 66 =  Escape colon NoSymbol NoSymbol
+keycode 47 = Control_L semicolon NoSymbol NoSymbol
+keycode  9 = Caps_Lock NoSymbol Caps_Lock
+!--------------------------------------------------
+! // FIXME 运行两遍才行
+clear lock
+clear control
+add control = Caps_Lock Control_L Control_R
+keycode 66 =  Escape colon NoSymbol NoSymbol
+keycode 47 = Control_L semicolon NoSymbol NoSymbol
+keycode  9 = Caps_Lock NoSymbol Caps_Lock
+
+!--------------------------------------------------
+!恢复默认
+!keycode   9 = Escape NoSymbol Escape
+!keycode  47 = semicolon colon semicolon colon
+!keycode  66 = Caps_Lock NoSymbol Caps_Lock
+!--------------------------------------------------
